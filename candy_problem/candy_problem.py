@@ -18,10 +18,13 @@ def create_new_candy_data_structure(data):
 
 
 def get_friends_who_like_specific_candy(data, candy_name):
-    pass
+    return tuple(create_new_candy_data_structure(data)[candy_name])
 
 def create_candy_set(data):
-    pass 
+    candy_set = set()
+    for key in create_new_candy_data_structure(data).keys():
+        candy_set.add(key)
+    return candy_set
 
 
 friend_favorites = [
@@ -32,5 +35,7 @@ friend_favorites = [
 ]
 
 favorite_candy_count = get_friends_favorite_candy_count(friend_favorites)
-print(favorite_candy_count)
-print(create_new_candy_data_structure(friend_favorites))
+# print(favorite_candy_count)
+# print(create_new_candy_data_structure(friend_favorites))
+print(get_friends_who_like_specific_candy(friend_favorites, 'laffy taffy'))
+# print(create_candy_set(friend_favorites))
